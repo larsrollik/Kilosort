@@ -83,6 +83,8 @@ disp('Saving.')
 rezToPhy2(rez, spikesorting_results);
 
 %% Backup whitening matrix
+disp('Copying temp_wh.dat to permanent location...')
 copyfile(fullfile(rootH, 'temp_wh.dat'), spikesorting_wh)
 
+disp('FIN.')
 %% END
