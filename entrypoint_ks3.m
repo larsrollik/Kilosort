@@ -20,6 +20,7 @@ spikesorting_tmp = fullfile(rootY, 'tmp');
 mkdir(spikesorting_tmp)
 mkdir(spikesorting_wh)
 mkdir(spikesorting_results)
+mkdir(rootH)
 
 %%
 pathToYourConfigFile = fullfile(ks_dir, 'configFiles');
@@ -85,6 +86,13 @@ rezToPhy2(rez, spikesorting_results);
 %% Backup whitening matrix
 disp('Copying temp_wh.dat to permanent location...')
 copyfile(fullfile(rootH, 'temp_wh.dat'), spikesorting_wh)
+
+% if copying was successful, then remove large tmp file
+if isfile(fullfile(spikesorting_wh, 'temp_wh.dat'))
+  delete(ops.fproc)
+  rmdir(rootH)
+  disp('Deleted temp_wh.dat in temp_dir (rootH)')
+end
 
 disp('FIN.')
 %% END
