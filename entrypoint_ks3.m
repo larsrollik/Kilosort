@@ -63,10 +63,10 @@ disp('Extracting spikes.')
 [rez, st3, tF]     = extract_spikes(rez);
 
 disp('Saving intermediate.')
-save(fullfile(spikesorting_tmp, 'rez.mat'), 'rez')
-save(fullfile(spikesorting_tmp, 'st3.mat'), 'st3')
-save(fullfile(spikesorting_tmp, 'tF.mat'), 'tF')
-save(fullfile(spikesorting_tmp, 'ops.mat'), 'ops')
+save(fullfile(spikesorting_tmp, 'rez.mat'), 'rez', '-v7.3')
+save(fullfile(spikesorting_tmp, 'st3.mat'), 'st3', '-v7.3')
+save(fullfile(spikesorting_tmp, 'tF.mat'), 'tF', '-v7.3')
+save(fullfile(spikesorting_tmp, 'ops.mat'), 'ops', '-v7.3')
 
 disp('Learning.')
 rez                = template_learning(rez, tF, st3);
