@@ -80,8 +80,14 @@ rez                = final_clustering(rez, tF, st3);
 disp('Merging.')
 rez                = find_merges(rez, 1);
 
-disp('Saving.')
+disp('Saving to phy files.')
 rezToPhy2(rez, spikesorting_results);
+
+disp('Saving matlab objects.')
+save(fullfile(spikesorting_tmp, 'rez.mat'), 'rez', '-v7.3')
+save(fullfile(spikesorting_tmp, 'st3.mat'), 'st3', '-v7.3')
+save(fullfile(spikesorting_tmp, 'tF.mat'), 'tF', '-v7.3')
+save(fullfile(spikesorting_tmp, 'ops.mat'), 'ops', '-v7.3')
 
 %% Backup whitening matrix
 disp('Copying temp_wh.dat to permanent location...')
